@@ -1,0 +1,30 @@
+# Python environments and generated files
+.venv/
+.pythonlibs/
+.cache/
+.config/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.uv-cache/
+
+# Java
+*.class
+target/
+.gradle/
+
+# Ada
+*.o
+*.ali
+obj/
+bin/
+alire/
+
+# Editors
+.DS_Store
+*.swp

@@ -1,0 +1,1 @@
+- [Toolchain verification limits](toolchain-verification.md) — Nix package versions can differ from executable banners; Ada project discovery can stall in the shared Nix store.

@@ -1,0 +1,5 @@
+modules = ["python-base-3.13"]
+
+[nix]
+channel = "stable-25_05"
+packages = ["alire", "cairo", "ffmpeg-full", "freetype", "gcc15", "ghostscript", "glibcLocales", "gnat15", "gobject-introspection", "gprbuild", "gtk3", "jdk24", "libxcrypt", "maven", "pkg-config", "qhull", "tcl", "tk", "uv", "vim-full", "xsimd"]
