@@ -1,0 +1,53 @@
+set nocompatible  " Make sure modern Vim features are on. (Must be first.)
+
+" Display existing tab charachters as 4 spaces.
+set tabstop=4
+" Use 4 spaces for each step of (auto)indent.
+set shiftwidth=4
+" When the <Tab> key is pressed, insert spaces instead of a tab character.
+set expandtab
+" Ensure syntax highlighting remains enabled.
+syntax on
+" Display absolute line numbers.
+set number  " Set nonumber to turn off, set nonumber! to toggle, nu shortcut for number.
+
+
+" -- Markdown related ---------------------------------------------------
+
+" Stop the red highlight for stray '_' in Markdown files.
+augroup markdown_fix_underscore
+  autocmd!
+  autocmd FileType markdown syntax clear markdownError
+augroup END
+
+
+" Make only *text* italics in Markdown files.
+function! s:MarkdownFixItalic() abort
+  " Remove the built-in rule that also matches '_' characters.
+  silent! syntax clear markdownItalic
+
+  " Re-add a rule that matches ONLY *text* (no bare underscores).
+  syntax match markdownItalic /\*\%([^*]\+\)\*/ containedin=markdown
+
+  " Use the same highlight style as the default italic rule.
+  highlight default link markdownItalic markdownBold
+endfunction
+
+
+" Make only '---' a horizontal rule in Markdown files.
+function! s:MarkdownFixHr() abort
+  " Remove the built-in horizontal-rule patterns (***, ___, etc.).
+  silent! syntax clear markdownRule
+
+  " Only treat lines containing --- as horizontal rules (with optional spaces).
+  syntax match markdownRule /^\s*---\s*$/ containedin=markdown
+endfunction
+
+
+augroup FixMarkdownSyntax
+  autocmd!
+  autocmd Syntax markdown call s:MarkdownFixItalic()
+  autocmd Syntax markdown call s:MarkdownFixHr()
+augroup END
+
+" -----------------------------------------------------------------------
