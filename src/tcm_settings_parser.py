@@ -52,9 +52,67 @@ class TCMFile:
         section_text = self.full_text[match.end():section_end].strip()
 
         return f"# {section_title}", section_text
+    
+    def filter_adas(self, section_title: str) -> dict:
+        """Extract ADAS settings for all cars in the specified section."""
+        
+        section_text = self.extract_section_text(section_title)[1]
+        
+        # Initialize the dictionary.
+        self.adas_settings = {}
+        
+        # Split by ### headings to get individual car sections.
+        car_sections = re.split(r'^###\s+', section_text, flags=re.MULTILINE)
+        
+        # Skip the first element (text before first car).
+        for car_section in car_sections[1:]:
+            # Extract car name (first line of the section).
+            lines    = car_section.split('\n', 1)
+            car_name = lines[0].strip()
+            
+            if len(lines) < 2:
+                continue
+                
+            car_text = lines[1]
+            
+            # Initialize inner dictionary for this car.
+            adas_settings = {
+                "ABS"                 : None,
+                "Traction Control"    : None,
+                "ESP"                 : None,
+                "Drift Assist"        : None,
+                "Load Cell Dial Knob" : None
+            }
+            
+            # Find all bullet points ("  - Setting: Value").
+            bullet_pattern = re.compile(r'^\s*-\s+([^:]+):\s+(.+)$', re.MULTILINE)
+            matches        = bullet_pattern.findall(car_text)
+            
+            for setting_name, setting_value in matches:
+                setting_name  = setting_name.strip()
+                setting_value = setting_value.strip()
+                
+                if setting_name == "Load Cell Dial Knob":
+                    # Extract integer from TeX format: $80$ -> 80.
+                    load_cell_match = re.search(r'\$(\d+)\$', setting_value)
+                    if load_cell_match:
+                        adas_settings[setting_name] = int(load_cell_match.group(1))
+                elif setting_name in adas_settings:
+                    # Remove parenthetical notes: "Sport (explanation)" -> "Sport".
+                    clean_value = re.split(r'\s*\(', setting_value)[0].strip()
+                    adas_settings[setting_name] = clean_value
+            
+            # Store in main dictionary.
+            self.adas_settings[car_name] = adas_settings
+        
+        return self.adas_settings
 
 
 if __name__ == "__main__":
     file = TCMFile("../inputs/tcm_adas_settings.md")
-    section_text = file.extract_section_text("Cars With Modified Pro Settings")[1]
-    print(section_text)
+    
+    #section_text = file.extract_section_text("Cars With Modified Pro Settings")[1]
+    #print(section_text)
+
+    adas_setting = file.filter_adas("Cars With Modified Pro Settings")
+    print(adas_setting)
