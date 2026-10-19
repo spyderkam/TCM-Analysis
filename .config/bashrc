@@ -1,0 +1,3 @@
+# Source this bashrc in Bash—not vimrc. This tells Vim to read .config/vimrc 
+# whenever Vim starts, from any working directory.
+export VIMINIT='execute "source " . fnameescape($REPL_HOME . "/.config/vimrc")'

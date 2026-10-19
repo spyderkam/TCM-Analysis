@@ -1,7 +1,8 @@
 # Command-line Python, Java, and Ada environment
 
-This workspace contains environment configuration and dependencies only.
-There is no application source, default Run command, or workflow.
+This workspace provides a command-line Python, Java, and Ada development
+environment, plus a small Markdown section extraction script.
+There is no default Run command or workflow.
 
 ## Replit configuration
 
@@ -19,6 +20,60 @@ No `replit.nix` is used. Replit restores the declared toolchains from `.replit`.
 Commit `.replit`, `.python-version`, `pyproject.toml`, and `uv.lock`.
 Do not commit the generated Python environment.
 
+## Shell and Vim configuration
+
+Both `.config/bashrc` and `.config/vimrc` are intentionally empty. No optional
+shell or editor preferences are configured by this project, and no
+`.config/vim/` loader directory is needed. Vim uses its installed system/default
+configuration; the empty project Vim file is not automatically loaded.
+
+The original custom settings could not be recovered. Optional replacement
+settings and their `VIMINIT` loader have been removed at the user's request.
+
+Open a fresh Replit Shell to use the updated setup. If an existing Shell still
+has the previous `VIMINIT` export, clear it before opening Vim:
+
+```sh
+unset VIMINIT
+vim README.md
+```
+
+Sourcing the now-empty `.config/bashrc` does not remove an export already
+present in a running Shell. No home-directory configuration or installed
+system Vim settings have been changed.
+
+Do not ignore `.config/` as a whole. Only generated configuration/cache
+subdirectories such as `.config/matplotlib/` are ignored. The shell and Vim
+configuration files must remain tracked along with the other project files.
+The project's `!/.config/` exception overrides the environment's global
+`.config/` ignore rule; removing only a local ignore rule is not sufficient.
+
+## Markdown section extraction
+
+The former `main.py` is now `src/tcm_settings_parser.py`. It defines `TCMFile`,
+which reads a Markdown file and extracts a named section. The current entry
+point prints the body of “Cars With Modified Pro Settings” from
+`inputs/tcm_adas_settings.md`, including all 14 nested car subsections, and
+stops before the next same-level heading (“Pro Settings”).
+
+From the workspace root:
+
+```sh
+(cd src && uv run --locked python tcm_settings_parser.py)
+```
+
+The directory change is required by the script's current
+`../inputs/tcm_adas_settings.md` path, which is relative to the working
+directory. Calling it from the workspace root without changing directories
+currently reports `File not found.` The source code is unchanged by the
+configuration repair.
+
+Section matching preserves regex quantifier braces in raw f-strings, restricts
+the heading match to one line, and keeps deeper subsections until a heading of
+the same or higher level. The regex explanation is a raw string, avoiding the
+previous invalid escape warning. Missing files and sections report
+`File not found.` and `Section not found.`, respectively.
+
 ## Verified toolchain versions
 
 | Tool | Installed version |
@@ -30,6 +85,7 @@ Do not commit the generated Python environment.
 | GCC | 15.1.0 |
 | Alire | 2.1.0 |
 | Maven | 3.9.9 |
+| Vim | 9.1.1336 |
 | GPRbuild | Nix package 25.0.0; executable reports `GPRBUILD Pro 18.0w (19940713)` |
 
 These are the latest stable Python module and relevant versioned Nix packages

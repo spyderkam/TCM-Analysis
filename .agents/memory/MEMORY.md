@@ -1,1 +1,2 @@
 - [Toolchain verification limits](toolchain-verification.md) — Nix package versions can differ from executable banners; Ada project discovery can stall in the shared Nix store.
+- [User configuration preservation](user-configuration.md) — preserve custom shell/editor files under `.config`; ignore generated cache subdirectories individually.

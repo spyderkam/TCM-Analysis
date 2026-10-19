@@ -2,7 +2,9 @@
 .venv/
 .pythonlibs/
 .cache/
-.config/
+# Override the environment's global .config/ ignore rule.
+!/.config/
+.config/matplotlib/
 __pycache__/
 *.py[cod]
 *.egg-info/
