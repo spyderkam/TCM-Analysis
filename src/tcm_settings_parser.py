@@ -55,6 +55,6 @@ class TCMFile:
 
 
 if __name__ == "__main__":
-    file = TCMFile("inputs/tcm_adas_settings.md")
+    file = TCMFile("../inputs/tcm_adas_settings.md")
     section_text = file.extract_section_text("Cars With Modified Pro Settings")[1]
     print(section_text)
