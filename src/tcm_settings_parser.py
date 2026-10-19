@@ -4,7 +4,6 @@ __author__ = "@spyderkam"
 __date__   = "October 13, 2026 – October 19, 2026"
 
 from pathlib import Path
-import os
 import re
 
 
@@ -53,7 +52,7 @@ class TCMFile:
 
         return f"# {section_title}", section_text
     
-    def filter_adas(self, section_title: str) -> dict:
+    def adas_hash(self, section_title: str) -> dict:
         """Extract ADAS settings for all cars in the specified section."""
         
         section_text = self.extract_section_text(section_title)[1]
@@ -104,15 +103,17 @@ class TCMFile:
             
             # Store in main dictionary.
             self.adas_settings[car_name] = adas_settings
-        
+
+        # Having both a self variable and returning it allows for flexibility
+        # This could be handy with ADAS settings under multiple sections.
         return self.adas_settings
 
 
 if __name__ == "__main__":
-    file = TCMFile("../inputs/tcm_adas_settings.md")
+    tcm_file = TCMFile("../inputs/tcm_adas_settings.md")
     
-    #section_text = file.extract_section_text("Cars With Modified Pro Settings")[1]
+    #section_text = tcm_file.extract_section_text("Cars With Modified Pro Settings")[1]
     #print(section_text)
 
-    adas_setting = file.filter_adas("Cars With Modified Pro Settings")
-    print(adas_setting)
+    tcm_file.adas_hash("Cars With Modified Pro Settings")
+    print(tcm_file.adas_settings)
