@@ -24,7 +24,7 @@ __author__ = "@spyderkam"
 __date__   = "October 13, 2026 – October 20, 2026"
 
 from pathlib import Path
-from typing  import Tuple, Set, NamedTuple
+from typing  import NamedTuple, Set, Tuple
 import re
 
 
@@ -42,11 +42,11 @@ class TCMFile:
 
     # Canonical alias map and normaliser shared by filter_adas().
     _CANONICAL = {
-        "on"            : "on",
-        "off"           : "completely off",   # alias → canonical
-        "completely off": "completely off",
-        "comfort"       : "comfort",
-        "sport"         : "sport",
+        "on"             : "on",
+        "off"            : "completely off",   # alias → canonical
+        "completely off" : "completely off",
+        "comfort"        : "comfort",
+        "sport"          : "sport",
     }
 
     @staticmethod
@@ -99,11 +99,11 @@ class TCMFile:
 
             # Initialize inner dictionary for this car.
             adas_settings = {
-                "ABS":                 None,
-                "Traction Control":    None,
-                "ESP":                 None,
-                "Drift Assist":        None,
-                "Load Cell Dial Knob": None,
+                "ABS"                 : None,
+                "Traction Control"    : None,
+                "ESP"                 : None,
+                "Drift Assist"        : None,
+                "Load Cell Dial Knob" : None,
             }
 
             # Find all bullet points ("  - Setting: Value").
@@ -264,10 +264,10 @@ if __name__ == "__main__":
     print("Universal ADAS configurations:")
     for feature, setting in general_adas_hash.items():
         if setting is not None and setting.lower() == "off":
-            print(f"  {feature}: Completely OFF")
+            print(f"  {feature}: Completely Off")
         else:
-            print(f"  {feature}: {setting}")
+            print(f"  {feature}: {str(setting).capitalize()}")
     
     print("\nCars that satisfy those criteria:")
-    for car in matching_cars:
+    for car in sorted(matching_cars):
         print(f"  {car}")
