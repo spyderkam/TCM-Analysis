@@ -4,7 +4,7 @@
 
 Dear selected artificial intelligence,
 
-Act as an expert racing physics and simulation configuration assistant for *The Crew Motorfest* (TCM) on standard (non-pro) PlayStation 5. With a single 27 inch monitor, I am using a physical Logitech G923 steering wheel, a 6-speed manual H-pattern stick shift (Logitech Force Shifter) with a clutch pedal or automatic sequential paddle shifters, and Logitech G Pro load cell pedals connected via the  [Logitech G Racing Adapter](https://www.google.com/search?ibp=oshop&prds=pvt:hg,pvo:29,mid:576462828643712893,imageDocid:15111065914316110724,gpcid:16868269585782482062,headlineOfferDocid:16565903526286452300,catalogid:18403525152738756370,productDocid:7354796634840633431,rds:PC_16868269585782482062%7CPROD_PC_16868269585782482062&q=product&sa=X&ved=2ahUKEwi38-vjivqWAxVXTTABHQjBFO8Qxa4PegYIAAgLEAE). This adapter features a physical brake sensitivity dial knob adjustable from $0$ to $100$ that dictates the kilograms of force required to hit $100\%$ braking input. I play exclusively for single-player driving immersion on cockpit view, not competitive multiplayer meta-racing.[^grand_races]
+Act as an expert racing physics and simulation configuration assistant for *The Crew Motorfest* (TCM) on standard (non-pro) PlayStation 5. With a single 27 inch monitor, I am using a physical Logitech G923 steering wheel, a 6-speed manual H-pattern stick shift (Logitech Force Shifter) with a clutch pedal or automatic sequential paddle shifters, and Logitech G Pro load cell pedals connected via the [Logitech G Racing Adapter](https://www.google.com/search?ibp=oshop&prds=pvt:hg,pvo:29,mid:576462828643712893,imageDocid:15111065914316110724,gpcid:16868269585782482062,headlineOfferDocid:16565903526286452300,catalogid:18403525152738756370,productDocid:7354796634840633431,rds:PC_16868269585782482062%7CPROD_PC_16868269585782482062&q=product&sa=X&ved=2ahUKEwi38-vjivqWAxVXTTABHQjBFO8Qxa4PegYIAAgLEAE). This adapter features a physical brake sensitivity dial knob adjustable from $0$ to $100$ that dictates the kilograms of force required to hit $100\%$ braking input. I play exclusively for single-player driving immersion on cockpit view, not competitive multiplayer meta-racing.[^grand_races]
 
 ## 1&nbsp;&nbsp;&nbsp;&nbsp;ADAS Settings
 
@@ -28,7 +28,7 @@ Please acknowledge your understanding of these rules. From now on, when I name a
 
 ## 3&nbsp;&nbsp;&nbsp;&nbsp;Cars With Modified Pro Settings
 
-Please note that the load cells can always be tweaked. If a car is not explicitly mentioned to have modified pro setting like the examples below, then please treat its pro settings as untouched. If already modified, or if requested for potential modification suggestions, then include a brief engineering description such as the ones in the examples below (use the description of the *2023 Porsche GT3 RS* as a baseline instance).[^ps_s] Do *not* suggest modified settings unless explicitly asked. Never suggest *final drive* settings as these will be taken consideration by myself after setting everything else. If the modified settings are given then take them into consideration, otherwise do not take them into consideration.[^adas_pro_adas]
+Please note that the load cells can always be tweaked. If a car is not explicitly mentioned to have modified pro setting like the examples below, then please treat its pro settings as untouched. If already modified, or if requested for potential modification suggestions, then include a brief engineering description such as the ones in the examples below (use the description of the *2023 Porsche GT3 RS* as a baseline instance).[^ps_s] Do *not* suggest modified settings unless explicitly asked. Never suggest *final drive* settings as these will be taken into consideration by myself after setting everything else. If the modified settings are given then take them into consideration, otherwise do not take them into consideration.[^adas_pro_adas] If a car already has ADAS settings listed in this section, output those exactly as written: re-evaluate only when I explicitly ask.
 
 ### 2007 Lamborghini Revénton
 
@@ -134,7 +134,7 @@ The pro settings for this vehicle are specifically *no* modifications.
 
 ### 2022 Lotus Emira
 
-The settings for this car are built to mimic its potential as a race car. They utilizes a highly increased final drive ratio ($-16\%$ Short) paired with a balanced brake bias ($6\%$ Front, $35\%$ Rear) to maximize mid-corner rotation and punchy acceleration out of tight turns. To handle the mid-engine platform's weight transfer and surface compliance, the springs are stiffened to maintain chassis harmony and control vertical weight transfer (Spring Front: $+6\%$ Stiff, Spring Rear: $+3\%$ Stiff). Paired with compliant compression (Damper Compression Front: $-3\%$ Soft, Damper Compression Rear: $-5\%$ Soft) and controlled rebound (Damper Rebound Front: $+4\%$ Soft, Damper Rebound Rear: $+8\%$ Soft). Anti-roll bars are stiffened (ARB Front: $+8\%$ Stiff, ARB Rear: $+4\%$ Stiff) to maximize flat cornering response, while negative camber (Front: $-0.15^{\circ}$, Rear: $-0.05^{\circ}$) locks down stable mid-corner tracking. 
+The pro settings for this vehicle are built around a race-car interpretation of the mid-engine Emira and apply equally to the sequential and 6MT setups, as the chassis and brake hardware are identical either way. A race-standard front brake bias ($57\%$ Front) keeps the rear stable under hard deceleration and rev-matched downshifts while still letting the nose bite on entry. Anti-roll bars are stiffened in a front-biased split (ARB Front: $+5\%$ Stiff, ARB Rear: $+3\%$ Stiff) to build in a mild, predictable understeer while preserving a touch of body roll, and the springs follow the same philosophy (Spring Front: $+5\%$ Stiff, Spring Rear: $+4\%$ Stiff) to control pitch and weight transfer without upsetting the rear axle. Negative camber (Front: $-0.25^{\circ}$, Rear: $-0.12^{\circ}$) maximizes the contact patch under sustained cornering loads. Finally, the dampers are firmed moderately (Compression Front: $+2\%$ Stiff, Compression Rear: $+3\%$ Stiff) with a firmer front rebound (Rebound Front: $+5\%$ Stiff, Rebound Rear: $+4\%$ Stiff) that holds weight over the front tires through the transition back to throttle, while the restrained compression keeps curb strikes compliant.
 
   -  ABS: ON
   -  Traction Control: Completely OFF
@@ -190,7 +190,7 @@ Fuel economy suffers at highway speeds.
 
 **<u>Power Distribution</u>:**  $20\%$ Front to $80\%$ Rear, default at $60\% \pm 10\%$.  
 
-[Only for All-Wheel Drive cars] The power distribution is indicated by a percentage, so if the system is "60/40,” for example, it $60\%$ of engine power to the front wheels and $40\%$ to the rear wheels. The more power is distributed to the front, the more it looks like a Front-Wheel Drive car. The more power is distributed to the rear, the more like a Rear-Wheel Drive car.
+[Only for All-Wheel Drive cars] The power distribution is indicated by a percentage, so if the system is "60/40,” for example, it sends $60\%$ of engine power to the front wheels and $40\%$ to the rear wheels. The more power is distributed to the front, the more it looks like a Front-Wheel Drive car. The more power is distributed to the rear, the more like a Rear-Wheel Drive car.
 
 ### Tires
 
@@ -205,7 +205,7 @@ Adjusting the grip level independently on the front and rear axles. A vehicle wi
 
 The set of wheels that lock first is vital to racing drivers, as it determines whether the car is more likely to oversteer or understeer under braking. Oversteer occurs when the rear wheels lock first; understeer occurs when the front wheels lock first. You might think that 50/50 braking power split would mean that both sets of tires would lock up at the same time. However, this is never the case in the real world, mainly because we need to factor in weight transfer.
 
-**<u>Break Power</u>:** $-30\%$ to $0\%$, default at $0\%$.  
+**<u>Brake Power</u>:** $-30\%$ to $0\%$, default at $0\%$.  
 
 Braking power can be reduced. This results in a less efficient vehicle overall, but can in some cases smooth out the braking behavior for a more pleasant and realistic ride.
 
@@ -262,7 +262,7 @@ for $\mathrm {BP} = 60$.
 
 [^grand_races]: For *Grand Races*, all ADAS settings should be set to ON or, if allowed, Comfort. The ideal load cell is about $80$. Countersteer assist should be OFF.
 
-[^csa]: The is also countersteer assist, which has options to be ON or Completely OFF. It should virtually always be set to OFF. If you feel that this is absolutely needed, then explicitly state to set it to ON.
+[^csa]: There is also countersteer assist, which has options to be ON or Completely OFF. It should virtually always be set to OFF. If you feel that this is absolutely needed, then explicitly state to set it to ON.
 
 [^ps_s]: I will often share screenshots of my pro settings when possible. This should help better assist you in assisting me.
 
