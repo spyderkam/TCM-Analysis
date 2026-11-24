@@ -1,206 +1,169 @@
-# Command-line Python, Java, and Ada environment
+# Motorfest ADAS Analysis
 
-This workspace provides a command-line Python, Java, and Ada development
-environment, plus a small Markdown section extraction script.
-There is no default Run command or workflow.
+Parse and filter vehicle assistance settings for **The Crew Motorfest**.
+The project reads a Markdown reference file and finds cars whose recorded
+Advanced Driver Assistance Systems (ADAS) settings match your chosen criteria.
 
-## Replit configuration
+**Author:** @spyderkam
 
-`.replit` uses the current `modules` and `[nix]` configuration:
+## What it does
 
-- `python-base-3.13` supplies the Replit-managed Python interpreter.
-- `stable-25_05` is the newest stable Nix channel available in this workspace.
-- Nix packages provide OpenJDK 24, GNAT 15, GPRbuild, Alire, Maven, uv, and
-  the scientific/native libraries and command-line tools from the reference.
-- Java uses `jdk24`, not the older GraalVM module. The available GraalVM
-  module bundles Java 19; it is not the newest stable Java in this channel.
-- `gcc15` and `gnat15` replace the reference's older default GCC/GNAT.
+- Extracts a named Markdown section while retaining its nested car entries.
+- Builds a dictionary of each car's ABS, traction control, ESP, drift assist,
+  and load-cell dial settings.
+- Filters cars by any combination of those five settings.
+- Accepts case-insensitive text filters and treats `off` as an alias for
+  `completely off`.
+- Prints a demonstration query and its matching cars in alphabetical order.
 
-No `replit.nix` is used. Replit restores the declared toolchains from `.replit`.
-Commit `.replit`, `.python-version`, `pyproject.toml`, and `uv.lock`.
-Do not commit the generated Python environment.
+This is an early-stage, offline analysis tool for the supplied settings—not
+a connection to the game. It does not change in-game settings, simulate
+vehicle physics, or generate tuning recommendations.
 
-## Shell and Vim configuration
+## Requirements
 
-Both `.config/bashrc` and `.config/vimrc` are intentionally empty. No optional
-shell or editor preferences are configured by this project, and no
-`.config/vim/` loader directory is needed. Vim uses its installed system/default
-configuration; the empty project Vim file is not automatically loaded.
+- **Python 3.13**, as specified by the project's Python version constraint.
+- **uv** for restoring the locked Python environment and running examples.
 
-The original custom settings could not be recovered. Optional replacement
-settings and their `VIMINIT` loader have been removed at the user's request.
+The current ADAS processor uses only Python's standard library. The repository
+also declares a broader scientific environment, but those packages are not
+required by the parser itself. Java and Ada are development toolchains, not
+runtime requirements for this script.
 
-Open a fresh Replit Shell to use the updated setup. If an existing Shell still
-has the previous `VIMINIT` export, clear it before opening Vim:
+For the environment setup, recorded toolchain versions, and compatibility
+notes, see [DEVELOPMENT.md](DEVELOPMENT.md).
 
-```sh
-unset VIMINIT
-vim README.md
-```
+## Quick start
 
-Sourcing the now-empty `.config/bashrc` does not remove an export already
-present in a running Shell. No home-directory configuration or installed
-system Vim settings have been changed.
-
-Do not ignore `.config/` as a whole. Only generated configuration/cache
-subdirectories such as `.config/matplotlib/` are ignored. The shell and Vim
-configuration files must remain tracked along with the other project files.
-The project's `!/.config/` exception overrides the environment's global
-`.config/` ignore rule; removing only a local ignore rule is not sufficient.
-
-## Markdown section extraction
-
-The former `main.py` is now `src/tcm_settings_parser.py`. It defines `TCMFile`,
-which reads a Markdown file and extracts a named section. The current entry
-point prints the body of “Cars With Modified Pro Settings” from
-`inputs/tcm_adas_settings.md`, including all 14 nested car subsections, and
-stops before the next same-level heading (“Pro Settings”).
-
-From the workspace root:
-
-```sh
-(cd src && uv run --locked python tcm_settings_parser.py)
-```
-
-The directory change is required by the script's current
-`../inputs/tcm_adas_settings.md` path, which is relative to the working
-directory. Calling it from the workspace root without changing directories
-currently reports `File not found.` The source code is unchanged by the
-configuration repair.
-
-Section matching preserves regex quantifier braces in raw f-strings, restricts
-the heading match to one line, and keeps deeper subsections until a heading of
-the same or higher level. The regex explanation is a raw string, avoiding the
-previous invalid escape warning. Missing files and sections report
-`File not found.` and `Section not found.`, respectively.
-
-## Verified toolchain versions
-
-| Tool | Installed version |
-| --- | --- |
-| Python | 3.13.11 |
-| uv | 0.7.20 |
-| Java runtime / compiler | OpenJDK 24.0.1, build 24.0.1+9 |
-| GNAT Ada compiler / GNATMAKE | 15.1.0 |
-| GCC | 15.1.0 |
-| Alire | 2.1.0 |
-| Maven | 3.9.9 |
-| Vim | 9.1.1336 |
-| GPRbuild | Nix package 25.0.0; executable reports `GPRBUILD Pro 18.0w (19940713)` |
-
-These are the latest stable Python module and relevant versioned Nix packages
-available in the workspace's supported catalogue, not necessarily the newest
-upstream releases. Python 3.14 is available through Nix only as `3.14.0b4`
-(a prerelease), so it is excluded. Java 25/26 packages are unavailable in this
-catalogue. uv is limited to 0.7.20 by this channel. No prereleases are selected.
-
-## Restore and use Python dependencies
-
-From the Replit Shell:
+From the repository root:
 
 ```sh
 uv sync --locked
+(cd src && uv run --locked python adas_processor.py)
+```
+
+The included demonstration reads `inputs/tcm_adas_settings.md` and selects
+cars with:
+
+| Setting | Filter |
+| --- | --- |
+| ABS | On |
+| Traction Control | Sport |
+| ESP | Completely Off |
+| Drift Assist | Sport |
+| Load Cell Dial Knob | Unrestricted |
+
+It prints the selected criteria followed by the matching car names.
+
+**Working directory matters:** the script currently uses
+`../inputs/tcm_adas_settings.md`, relative to the process's working directory.
+Use the command above; running `uv run --locked python src/adas_processor.py`
+directly from the root will report `File not found.`
+
+There are no command-line filter flags yet. Change the demonstration's
+`general_adas_hash` dictionary or use the Python interface below for your
+own query.
+
+## Filter from Python
+
+Start Python from the repository root:
+
+```sh
 uv run --locked python
-uv run --locked python your_script.py
 ```
 
-`.python-version` selects Python 3.13.11. The project supports only Python
-3.13 (`>=3.13,<3.14`), matching the verified toolchain. uv interpreter downloads
-are disabled: the project uses Replit's native-library-configured interpreter.
-The project is an environment, not an installable application package.
+Then:
 
-Replit sets `UV_PROJECT_ENVIRONMENT` to `.pythonlibs`; uv used that directory
-here. Where that variable is absent, uv uses `.venv`. Both are ignored in Git.
+```python
+from src.adas_processor import TCMFile
 
-`uv.lock` was freshly resolved with `uv lock --upgrade`; it records exact
-versions and artifact hashes. Normal restoration uses `--locked`, not
-`--upgrade`. To intentionally update dependencies:
+tcm = TCMFile("inputs/tcm_adas_settings.md")
+settings_by_car = tcm.adas_hash("Cars With Modified Pro Settings")
 
-```sh
-uv add package-name
-uv lock --upgrade
-uv sync --locked
+criteria, matching_cars = tcm.filter_adas(
+    abs_setting="on",
+    traction_control="sport",
+    esp_setting="off",
+    drift_assist="sport",
+    load_cell=None,
+)
+
+print(f"Parsed {len(settings_by_car)} cars")
+for car in sorted(matching_cars):
+    print(car)
 ```
 
-### Installed Python distributions
+Call `adas_hash()` before `filter_adas()`. Each call to `adas_hash()` replaces
+the stored dictionary with settings from the requested section.
 
-| Distribution | Exact version |
+### Available filters
+
+| Argument | Accepted values |
 | --- | --- |
-| astropy | 8.0.1 |
-| astropy-iers-data | 0.2026.10.12.1.3.27 |
-| contourpy | 1.4.0 |
-| cycler | 0.12.1 |
-| fonttools | 4.66.1 |
-| kiwisolver | 1.5.1 |
-| matplotlib | 3.11.2 |
-| mpmath | 1.3.0 |
-| numpy | 2.5.4 |
-| packaging | 26.3 |
-| pandas | 3.0.6 |
-| pillow | 12.3.0 |
-| pyerfa | 2.0.1.5 |
-| pyparsing | 3.3.3 |
-| python-dateutil | 2.9.0.post0 |
-| pyyaml | 6.0.3 |
-| scipy | 1.18.1 |
-| six | 1.17.0 |
-| sympy | 1.14.0 |
-| uncertainties | 3.2.3 |
+| `abs_setting` | `on`, `off`, `completely off` |
+| `traction_control` | `comfort`, `sport`, `off`, `completely off` |
+| `esp_setting` | `comfort`, `sport`, `off`, `completely off` |
+| `drift_assist` | `comfort`, `sport`, `off`, `completely off` |
+| `load_cell` | An integer for an exact match |
 
-The lockfile additionally contains `tzdata==2026.5` for Windows; it is not
-installed on this Linux workspace.
+All arguments default to `None`, which leaves that setting unrestricted.
+Supplied criteria must all match. Omitting every argument returns all parsed
+cars.
 
-## Java
+Text filters ignore case and surrounding whitespace. Invalid text options
+raise `ValueError`. The load-cell reference uses values from 0 to 100; the
+current code does not validate that range or apply a tolerance.
 
-```sh
-javac YourProgram.java
-java YourProgram
+`filter_adas()` returns a tuple containing:
+
+1. A single-element set containing an `ADASConfig` with the normalized query
+   criteria, using `None` for omitted criteria.
+2. A set of matching car names. Use `sorted()` when displaying it for
+   consistent ordering.
+
+## Input format
+
+The included reference is `inputs/tcm_adas_settings.md`. The parser expects
+level-three headings for cars and named bullet points for their settings,
+inside the selected section:
+
+```markdown
+## Cars With Modified Pro Settings
+
+### Example Car
+
+  - ABS: ON
+  - Traction Control: Sport
+  - ESP: Completely OFF
+  - Drift Assist: Sport
+  - Load Cell Dial Knob: $80$
 ```
 
-Maven's Nix wrapper defaults to its bundled Java **21.0.7+6**, independently
-of the Shell's Java 24. To run Maven with the installed Java 24:
+Use the setting names shown above. Load-cell values are extracted from
+dollar-delimited integers such as `$80$`. Parenthetical notes following text
+settings are removed during parsing.
 
-```sh
-JAVA_HOME="$(dirname "$(dirname "$(readlink -f "$(command -v javac)")")")" mvn -version
-JAVA_HOME="$(dirname "$(dirname "$(readlink -f "$(command -v javac)")")")" mvn package
+The selected section ends at the next heading of the same or a higher level,
+so subsequent sections are not treated as car entries.
+
+## Current limitations
+
+- Input must follow the expected Markdown structure and contain complete
+  settings for the fields being filtered; this is not a general Markdown
+  parser or a comprehensive data validator.
+- Missing files or sections terminate processing with `File not found.` or
+  `Section not found.`
+- Filtering before calling `adas_hash()` raises `AttributeError`.
+- Results reflect the reference file's recorded settings, not live game data
+  or independent verification of those recommendations.
+
+## Project layout
+
+```text
+inputs/tcm_adas_settings.md  Vehicle settings reference
+src/adas_processor.py       Section extraction, ADAS parsing, and filtering
+README.md                   Project overview and usage
+DEVELOPMENT.md              Environment and toolchain documentation
+pyproject.toml              Python version constraint and dependencies
+uv.lock                     Reproducible Python dependency lockfile
 ```
-
-## Ada
-
-```sh
-gnatmake your_program.adb
-./your_program
-alr --version
-```
-
-GNAT successfully compiled and ran a temporary Ada program using
-`Ada.Numerics.Long_Elementary_Functions`. Java compilation and execution also
-passed. Test source and outputs were placed under `/tmp`, not in this project.
-
-### GPRbuild compatibility limit
-
-GPRbuild is installed, but project builds did **not** pass verification:
-automatic compiler/runtime discovery stalled while scanning `/nix/store`.
-Both normal discovery and explicit compiler-path discovery timed out.
-Its version banner also differs from the Nix package version as noted above.
-Use the verified `gnatmake` command for single-file Ada builds; do not treat
-GPRbuild or Alire project builds as verified by this setup.
-
-## Verification commands
-
-```sh
-python --version
-uv --version
-java -version
-javac -version
-gnatmake --version
-gprbuild --version
-alr --version
-uv lock --check
-uv run --locked python -c "import numpy, pandas, scipy, sympy, matplotlib, astropy, uncertainties; print('All scientific imports passed')"
-```
-
-All seven direct Python dependencies imported successfully. A native SciPy
-linear-system solve and Matplotlib headless PNG rendering also passed.
-Interactive GTK/Tk windows are not verified in this command-line environment;
-use a headless Matplotlib backend (`Agg`) for file output.
