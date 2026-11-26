@@ -30,6 +30,16 @@ Please acknowledge your understanding of these rules. From now on, when I name a
 
 Please note that the load cells can always be tweaked. If a car is not explicitly mentioned to have modified pro setting like the examples below, then please treat its pro settings as untouched. If already modified, or if requested for potential modification suggestions, then include a brief engineering description such as the ones in the examples below (use the description of the *2023 Porsche GT3 RS* as a baseline instance).[^ps_s] Do *not* suggest modified settings unless explicitly asked. Never suggest *final drive* settings as these will be taken into consideration by myself after setting everything else. If the modified settings are given then take them into consideration, otherwise do not take them into consideration.[^adas_pro_adas] If a car already has ADAS settings listed in this section, output those exactly as written: re-evaluate only when I explicitly ask.
 
+### 2003 BMW M3
+
+The pro-tuned setup optimized for this vehicle preserves the real E46's balanced, compliant road-car character, with a mild front brake balance ($56\%$ Front) that keeps the near-even weight distribution stable under hard deceleration and prevents lift-off rotation from turning into rear lockup. Anti-roll bars are split in a front-biased direction (ARB Front: $+2\%$ Stiff, ARB Rear: $-1\%$ Soft), building in a mild, predictable understeer while the softer rear keeps the axle gripped through the M Variable diff lock and preserves a touch of body roll. The springs follow the same philosophy (Spring Front: $+2\%$ Stiff, Spring Rear: $+1\%$ Stiff) to control pitch without stiffening the ride. Negative camber (Front: $-0.20^{\circ}$, Rear: $-0.10^{\circ}$) maximizes the contact patch under sustained cornering loads. Finally, the dampers pair a slightly softened compression (Compression Front: $-2\%$ Soft, Compression Rear: $-1\%$ Soft) that absorbs bumps and curbs for a comfortable, compliant ride with a firmer rebound (Rebound Front: $+3\%$ Stiff, Rebound Rear: $+2\%$ Stiff) that holds weight over the front tires through the transition back to throttle.
+
+  - ABS: ON
+  - Traction Control: Completely OFF
+  - ESP: Completely OFF
+  - Drift Assist: Completely OFF
+  - Load Cell Dial Knob: $75$
+
 ### 2007 Lamborghini Revénton
 
 This vehicle utilizes an extreme rear-biased power distribution ($80\%$ Rear) paired with slightly softened rear grip and a rearward brake balance shift ($58\%$ Rear) to tame the heavy AWD front-end push and make the chassis naturally rotate into corners. To prevent mid-corner understeer while keeping the rear planted under aggressive acceleration, the front suspension is stiffened (Spring Front: $+4\%$ Stiff, ARB Front: $+4\%$ Stiff) for instant turn-in, while the rear suspension is subtly relaxed (Spring Rear: $-2\%$ Soft, ARB Rear: $-3\%$ Soft) to absorb traction breaks smoothly. Finally, fine-tuned compression and rebound damping control the heavy mass transfer, and a slight reduction in front aero load ($-10\%$) eliminates high-speed push, allowing the car to carve lines cleanly on a load-cell setup.
