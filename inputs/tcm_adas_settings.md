@@ -122,6 +122,16 @@ The pro-tuned setup optimized for this vehicle firms the game's factory baseline
   - Drift Assist: Sport
   - Load Cell Dial Knob: $85$
 
+### 2020 Ford Mustang Shelby GT500 Tribute Edition
+
+The pro-tuned setup optimized for this vehicle firms the game's factory baseline toward the real car's *Track* mode while respecting its heavy, nose-biased mass and supercharged torque, with a forward brake balance ($60\%$ Front) that keeps the rear planted under hard deceleration on the six-piston Brembo brakes. Anti-roll bars are split in a front-biased direction (ARB Front: $+2\%$ Stiff, ARB Rear: $-2\%$ Soft), building in a mild, predictable understeer while the softer rear gains grip to put the $760~\mathrm{hp}$ V8 down cleanly and preserves a touch of body roll. The springs are firmed toward the front (Spring Front: $+4\%$ Stiff, Spring Rear: $+1\%$ Stiff) to control dive and pitch from the heavy nose without unsettling the rear axle. Maximum negative front camber (Front: $-0.25^{\circ}$, Rear: $-0.10^{\circ}$) gives the front tires the bite the front-heavy chassis needs mid-corner. Finally, the dampers are firmed moderately (Compression Front: $+2\%$ Stiff, Compression Rear: $+4\%$ Stiff), with the stiffer rear containing squat as the supercharger's torque arrives, paired with a firmer front rebound (Rebound Front: $+5\%$ Stiff, Rebound Rear: $+2\%$ Stiff) that holds weight over the front tires through the transition back to throttle.
+
+  - ABS: ON
+  - Traction Control: Sport
+  - ESP: Sport
+  - Drift Assist: Sport
+  - Load Cell Dial Knob: $85$
+
 ### 2020 Porsche 911 Carrera 4S Timeless Edition
 
 The pro settings for this vehicle are specifically *no* modifications.
@@ -131,6 +141,16 @@ The pro settings for this vehicle are specifically *no* modifications.
   - ESP: Completely OFF
   - Drift Assist: Sport
   - Load Cell Dial Knob: $90$
+
+### 2021 BMW M4 Competition Coupé
+
+The pro-tuned setup optimized for this vehicle firms the game's factory baseline toward the real car's *M Dynamic Mode* character, with a forward brake balance ($58\%$ Front) that keeps the heavy front-engine coupé stable under hard deceleration and paddle downshifts. Anti-roll bars are stiffened in a front-biased split (ARB Front: $+3\%$ Stiff, ARB Rear: $+1\%$ Stiff) to build in a mild, predictable understeer while keeping the rear axle gripped and preserving a touch of body roll, and the springs follow the same philosophy (Spring Front: $+3\%$ Stiff, Spring Rear: $+2\%$ Stiff) to control pitch and weight transfer without upsetting the rear tires. Negative camber (Front: $-0.20^{\circ}$, Rear: $-0.10^{\circ}$) maximizes the contact patch under sustained cornering loads. Finally, the dampers are firmed lightly (Compression Front: $+1\%$ Stiff, Compression Rear: $+3\%$ Stiff), with the stiffer rear containing squat as the twin-turbo S58's torque arrives, paired with a firmer front rebound (Rebound Front: $+4\%$ Stiff, Rebound Rear: $+2\%$ Stiff) that holds weight over the front tires through the transition back to throttle, while the restrained compression keeps the ride compliant over bumps and curbs.
+
+  - ABS: ON
+  - Traction Control: Sport
+  - ESP: Completely OFF (Sport by default, but OFF with *these* pro settings.)
+  - Drift Assist: Sport
+  - Load Cell Dial Knob: $80$
 
 ### 2022 Lotus Emira
 
