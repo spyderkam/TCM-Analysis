@@ -90,6 +90,16 @@ The pro-tuned setup optimized for this vehicle softens the game's factory baseli
   - Drift Assist: Completely OFF
   - Load Cell Dial Knob: $75$
 
+### 2016 Bugatti Veyron Edition One
+
+The pro-tuned setup for this vehicle stays deliberately close to the game's factory baseline to preserve the real car's composed, high-speed grand-touring character. A light negative camber (Front: $-0.10^{\circ}$, Rear: $-0.05^{\circ}$) adds a little cornering contact patch to the heavy AWD chassis without costing straight-line stability, while a gently firmed rebound (Rebound Front: $+2\%$ Stiff, Rebound Rear: $+1\%$ Stiff) keeps the nearly two-ton body settled through direction changes and the transition back to throttle. Everything else, including power distribution, brake balance, springs, compression, anti-roll bars and aero, stays at factory default.
+
+  - ABS: ON
+  - Traction Control: Sport
+  - ESP: Sport
+  - Drift Assist: Sport
+  - Load Cell Dial Knob: $85$
+
 ### 2016 Ferrari 488 GT3
 
 *Fully applicable to the* ***2016 Ferrari 488 GT3 AF Corse*** *edition as well.*
@@ -110,6 +120,16 @@ The optimized setup for this vehicle stiffens the game's factory spring baseline
   - Traction Control: Sport
   - ESP: Sport
   - Drift Assist: Completely OFF
+  - Load Cell Dial Knob: $75$
+
+### 2017 Acura NSX
+
+The pro-tuned setup optimized for this vehicle leans into the real car's *Sport+* character as a comfortable daily driver that still launches hard. Softened springs (Spring Front: $-2\%$ Soft, Spring Rear: $-3\%$ Soft) and compression (Compression Front: $-3\%$ Soft, Compression Rear: $-4\%$ Soft) absorb road imperfections for a compliant ride, while the softer rear lets the chassis squat under hard acceleration, shifting weight onto the rear tires so the hybrid AWD system puts its instant torque down cleanly off the line. A gently firmed rebound (Rebound Front: $+2\%$ Stiff, Rebound Rear: $+1\%$ Stiff) keeps the body from floating over crests and through the transition back to throttle, and light negative camber (Front: $-0.10^{\circ}$, Rear: $-0.05^{\circ}$) adds cornering bite without costing straight-line traction. Power distribution, brake balance, anti-roll bars and aero stay at factory default.
+
+  - ABS: ON
+  - Traction Control: Sport
+  - ESP: Sport
+  - Drift Assist: Sport
   - Load Cell Dial Knob: $75$
 
 ### 2017 Ford GT
