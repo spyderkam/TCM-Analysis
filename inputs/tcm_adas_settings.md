@@ -90,6 +90,16 @@ The pro-tuned setup optimized for this vehicle softens the game's factory baseli
   - Drift Assist: Completely OFF
   - Load Cell Dial Knob: $75$
 
+### 2016 Aston Martin Vulcan
+
+The pro-tuned setup optimized for this vehicle reinterprets the track-only Vulcan as a street-legal car in the spirit of its real-world road-legal conversions, softening the game's race-stiff baseline for public roads. Evenly relaxed springs (Spring Front: $-4\%$ Soft, Spring Rear: $-4\%$ Soft) and compression (Compression Front: $-5\%$ Soft, Compression Rear: $-5\%$ Soft) let the carbon chassis ride over bumps, crests and broken pavement instead of skipping across them, while a lightly softened rebound (Rebound Front: $-2\%$ Soft, Rebound Rear: $-2\%$ Soft) keeps the tires in contact over successive bumps. Anti-roll bars are relaxed with a slightly softer rear (ARB Front: $-2\%$ Soft, ARB Rear: $-3\%$ Soft), building in a mild, predictable understeer and natural body roll that make the $820~\mathrm{hp}$ V12 easier to manage at road speeds. Moderate negative camber (Front: $-0.15^{\circ}$, Rear: $-0.08^{\circ}$) keeps sharp turn-in without the race setup's straight-line compromise, and a mild front brake bias ($55\%$ Front) keeps the car stable under hard deceleration on the carbon-ceramic brakes.
+
+  - ABS: ON
+  - Traction Control: Sport
+  - ESP: Completely OFF
+  - Drift Assist: Completely OFF
+  - Load Cell Dial Knob: $95$
+
 ### 2016 Bugatti Veyron Edition One
 
 The pro-tuned setup for this vehicle stays deliberately close to the game's factory baseline to preserve the real car's composed, high-speed grand-touring character. A light negative camber (Front: $-0.10^{\circ}$, Rear: $-0.05^{\circ}$) adds a little cornering contact patch to the heavy AWD chassis without costing straight-line stability, while a gently firmed rebound (Rebound Front: $+2\%$ Stiff, Rebound Rear: $+1\%$ Stiff) keeps the nearly two-ton body settled through direction changes and the transition back to throttle. Everything else, including power distribution, brake balance, springs, compression, anti-roll bars and aero, stays at factory default.
