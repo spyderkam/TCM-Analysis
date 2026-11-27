@@ -38,7 +38,7 @@ The pro-tuned setup optimized for this 6MT vehicle preserves the real E46's bala
   - Traction Control: Completely OFF
   - ESP: Completely OFF
   - Drift Assist: Completely OFF
-  - Load Cell Dial Knob: $75$
+  - Load Cell Dial Knob: $70$
 
 ### 2007 Lamborghini Revénton
 
