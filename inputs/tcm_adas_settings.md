@@ -192,6 +192,18 @@ The pro-tuned setup optimized for this vehicle firms the game's factory baseline
   - Drift Assist: Sport
   - Load Cell Dial Knob: $80$
 
+### 2021 Toyota GR Supra LBWK Edition
+
+*Not applicable to other* ***Toyota GR Supra*** *versions.*
+
+The pro-tuned setup optimized for this vehicle interprets the GR Supra as Liberty Walk intended it, with a slammed, aggressive stance built around the widebody kit. Evenly stiffened springs (Spring Front: $+5\%$ Stiff, Spring Rear: $+5\%$ Stiff) and compression (Compression Front: $+3\%$ Stiff, Compression Rear: $+3\%$ Stiff) represent a lowered, firmed-up suspension that resists bottoming out, paired with a lightly firmed rebound (Rebound Front: $+2\%$ Stiff, Rebound Rear: $+2\%$ Stiff) that keeps the low body settled through direction changes. Heavy negative camber (Front: $-0.25^{\circ}$, Rear: $-0.20^{\circ}$), a signature of the LB stance, maximizes the contact patch of the wide tires under cornering loads. With the widened track already adding mechanical grip, only the front anti-roll bar is stiffened (ARB Front: $+2\%$ Stiff, ARB Rear: $0\%$), building in a mild, predictable understeer that keeps the turbocharged straight-six manageable on corner exit.
+
+  - ABS: ON
+  - Traction Control: Sport
+  - ESP: Completely OFF (Sport by default, but OFF with *these* pro settings.)
+  - Drift Assist: Sport
+  - Load Cell Dial Knob: $75$
+
 ### 2022 Lotus Emira
 
 The pro settings for this vehicle are built around a race-car interpretation of the mid-engine Emira and apply equally to the sequential and 6MT setups, as the chassis and brake hardware are identical either way. A race-standard front brake bias ($57\%$ Front) keeps the rear stable under hard deceleration and rev-matched downshifts while still letting the nose bite on entry. Anti-roll bars are stiffened in a front-biased split (ARB Front: $+5\%$ Stiff, ARB Rear: $+3\%$ Stiff) to build in a mild, predictable understeer while preserving a touch of body roll, and the springs follow the same philosophy (Spring Front: $+5\%$ Stiff, Spring Rear: $+4\%$ Stiff) to control pitch and weight transfer without upsetting the rear axle. Negative camber (Front: $-0.25^{\circ}$, Rear: $-0.12^{\circ}$) maximizes the contact patch under sustained cornering loads. Finally, the dampers are firmed moderately (Compression Front: $+2\%$ Stiff, Compression Rear: $+3\%$ Stiff) with a firmer front rebound (Rebound Front: $+5\%$ Stiff, Rebound Rear: $+4\%$ Stiff) that holds weight over the front tires through the transition back to throttle, while the restrained compression keeps curb strikes compliant.
