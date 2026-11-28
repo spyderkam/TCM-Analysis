@@ -192,6 +192,18 @@ The pro-tuned setup optimized for this vehicle firms the game's factory baseline
   - Drift Assist: Sport
   - Load Cell Dial Knob: $80$
 
+### 2021 Toyota GR Supra
+
+*Not applicable to other* ***Toyota GR Supra*** *versions.*
+
+The pro-tuned setup for this vehicle stays close to the game's factory baseline to preserve the standard GR Supra's balanced road-car character. A light negative camber (Front: $-0.10^{\circ}$, Rear: $-0.05^{\circ}$) adds a little cornering contact patch without costing straight-line traction, while a gently firmed rebound (Rebound Front: $+2\%$ Stiff, Rebound Rear: $+1\%$ Stiff) keeps the body settled through direction changes and the transition back to throttle. Everything else, including power, brake balance, springs, compression, anti-roll bars and aero, stays at factory default.
+
+  - ABS: ON
+  - Traction Control: Sport
+  - ESP: Sport
+  - Drift Assist: Sport
+  - Load Cell Dial Knob: $75$
+
 ### 2021 Toyota GR Supra LBWK Edition
 
 *Not applicable to other* ***Toyota GR Supra*** *versions.*
